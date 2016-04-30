@@ -1,0 +1,14 @@
+<div class="main">
+  <div class="container">
+    <h2>Students</h2>
+    <% @students.each do |s| %>
+        <div class="student">
+          <h3><%= s.name %></h3>
+          <p><%= s.register_number %></p>
+          <p><%= s.status %></p>
+          <%= link_to "Learn more", student_path(s) %>
+        </div>
+    <% end %>
+    <%= link_to 'New Student', "students/new" %>
+  </div>
+</div>

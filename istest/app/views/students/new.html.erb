@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="container">
+    <h2>Create Course</h2>
+        <div class="course">
+              <%= form_for(@student) do |f| %>  
+              <div class="field"> 
+                  <%= f.label "Name" %>
+                  <%= f.text_field :name %><br> 
+                  <%= f.label "Registration Number" %>
+                  <%= f.text_field :register_number %><br> 
+                  <%= f.label "Status" %>
+                  <%= f.check_box :status %><br> 
+              </div> 
+              <div class="actions"> 
+                  <%= f.submit "Create" %> 
+              </div> 
+              <% end %>
+        </div>
+  </div>
+</div>
