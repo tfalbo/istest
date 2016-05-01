@@ -8,6 +8,11 @@ class CoursesController < ApplicationController
   	@course = Course.new
   end
 
+  def edit 
+    @course = Course.find(params[:id]) 
+    @students = @course.students
+  end
+
   def show
     @course = Course.find(params[:id])
     @students = @course.students
@@ -21,6 +26,15 @@ class CoursesController < ApplicationController
       render 'new'
 		end
 	end
+
+  def update 
+    @course = Course.find(params[:id]) 
+    if @course.update_attributes(course_params) 
+      redirect_to(:action => 'show', :id => @course.id) 
+    else 
+      render 'edit' 
+    end 
+  end
 
   private
   	def course_params

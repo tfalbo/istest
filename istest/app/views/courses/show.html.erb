@@ -2,24 +2,45 @@
   <div class="container">
     <div class="course">
       
-      
-      <div class="class">
-        <h3>Course Name : <%= @course.name %></h3>
+      <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Course Data</h3>
+  </div>
+  <div class="panel-body">
+    <p>Name : <%= @course.name %></p>
         <p>Id: <%= @course.id %></p>
         <p>Description: <%= @course.description %></p>
         <p>Status: <%= @course.status %></p>
-      </div>
-    </div>
+  </div>
+  <p align= "center" ><button type="button" class="btn btn-default btn-lg"><%= link_to "Edit", edit_course_path(@course) %></button></p>
+</div>
+
 
 
     <h2>Students</h2>
-    <% # @student.each do |s| %>
-    <div class="student">
-      <h3><%#= s.name %></h3>
-      <p><%#= s.register_number %></p>
-      <p><%#= s.status%></p>
-    </div>
-		<% # end %>
+
+          <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%  @students.each do |s| %>
+    <tr>
+      <th scope="row"><% s.id %></th>
+      <td><%= s.name %></td>
+      <td><%= s.register_number %></td>
+      <td><%= s.status%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 
 
   </div>

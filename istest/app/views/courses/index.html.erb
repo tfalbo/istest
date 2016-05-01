@@ -1,14 +1,37 @@
 <div class="main">
   <div class="container">
+    
     <h2>Courses</h2>
+
+
+    <p align= "center" ><button type="button" class="btn btn-default btn-lg"><%= link_to 'New Course', "courses/new" %></button></p>
+    
+
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Learn more</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @courses.each do |c| %>
-        <div class="course">
-          <h3><%= c.name %></h3>
-          <p><%= c.description %></p>
-          <p><%= c.status %></p>
-          <%= link_to "Learn more", course_path(c) %>
-        </div>
+    <tr>
+      <th scope="row"><% c.id %></th>
+      <td><%= c.name %></td>
+      <td><%= c.description %></td>
+      <td><%= c.status %></td>
+      <td><%= link_to "Learn more", course_path(c) %></td>
+    </tr>
     <% end %>
-    <%= link_to 'New Course', "courses/new" %>
+  </tbody>
+</table>
+
+
+
   </div>
 </div>
